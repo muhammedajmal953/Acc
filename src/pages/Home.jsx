@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import Button from "../components/Button";
+import Card from "../components/Card";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -181,17 +182,19 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass rounded-xl p-8 text-center hover:scale-105 transition-transform"
               >
-                <div
-                  className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl font-bold text-white`}
-                >
-                  {feature.title[0]}
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-400">{feature.description}</p>
+                <Card hover glow tilt className="text-center h-full">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl font-bold text-white`}
+                  >
+                    {feature.title[0]}
+                  </motion.div>
+                  <h3 className="text-2xl font-bold mb-3 text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-400">{feature.description}</p>
+                </Card>
               </motion.div>
             ))}
           </div>
